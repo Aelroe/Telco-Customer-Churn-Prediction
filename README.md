@@ -118,4 +118,129 @@ Exploratory data analysis was conducted to identify patterns and key factors inf
 ### Key Insights
 - Short-term customers are at the highest risk of churn  
 - Contract type and payment behavior strongly influence churn  
-- Class imbalance must be handled carefully for accurate predictions  
+- Class imbalance must be handled carefully for accurate predictions
+
+---
+## Modeling Approach
+
+To predict customer churn, a baseline model and an advanced model were compared.
+
+### Baseline Model
+- Logistic Regression was used as a simple starting point  
+- Provides a clear benchmark for performance  
+
+### Advanced Model
+- XGBoost was selected as the final model  
+- Captures more complex patterns in the data  
+
+### Why XGBoost
+- Handles non-linear relationships better  
+- More effective with feature interactions  
+- Performed better across key metrics (ROC-AUC, F1, recall)  
+
+### Model Selection
+- XGBoost outperformed the baseline model  
+- Chosen for deployment due to stronger overall performance
+
+---
+## Model Training
+
+### Tools Used
+- Python (pandas, NumPy)
+- scikit-learn
+- XGBoost
+
+### Training Process
+- Data was split into training and testing sets (80/20, stratified)
+- Preprocessing steps (encoding, scaling) were applied
+- SMOTEENN was used on the training data to handle class imbalance
+- Models were trained and evaluated on the test set
+
+### Hyperparameters
+- XGBoost hyperparameters were tuned to improve performance
+- Focus was on optimizing recall and overall model stability
+
+
+---
+## Results
+
+### Evaluation Metrics
+- ROC-AUC: ~0.82  
+- F1 Score (churn): ~0.62  
+- Recall: ~0.79  
+- Decision Threshold: ~0.43  
+
+### Why These Metrics
+- ROC-AUC measures overall model performance  
+- Recall is important to capture as many churn cases as possible  
+- F1 score balances precision and recall  
+
+### Model Performance
+- XGBoost outperformed the baseline model across all key metrics  
+- Higher recall ensures fewer high-risk customers are missed  
+
+### Key Takeaway
+- The model is effective at identifying customers at risk of churn  
+- It is better suited for business use where missing churn cases is costly
+
+
+---
+## Key Insights
+
+- Contract type is the strongest predictor — month-to-month customers churn the most  
+- Tenure is critical — newer customers are much more likely to leave  
+- Service features matter — lack of tech support and online security increases churn  
+- Billing behavior also plays a role — higher charges and paperless billing link to higher churn  
+
+### Business Impact
+- The model helps identify high-risk customers early  
+- Enables targeted retention strategies (offers, support, incentives)  
+- Reduces revenue loss by focusing on customers most likely to churn
+
+
+---
+## Conclusion
+
+This project successfully developed a machine learning model to predict customer churn.
+
+The XGBoost model achieved strong performance and was deployed into an interactive Streamlit app, making it usable in real-world scenarios.
+
+Overall, the project demonstrates how data can be used to support proactive decision-making and reduce customer loss.
+
+---
+## Future Work
+
+- Improve model performance with additional features or external data  
+- Explore deep learning or ensemble methods  
+- Incorporate real-time data for live predictions  
+- Enhance deployment with user tracking or dashboards
+
+---
+## How to Run
+
+1. Install dependencies:
+   pip install -r requirements.txt
+
+2. Run the Streamlit app:
+   streamlit run app.py
+
+3. Open the app in your browser and input customer data to get predictions
+
+---
+## Repository Structure
+
+- `README.md` — project overview and documentation
+- `app.py` — Streamlit deployment app
+- `Telco_Churn_CapstoneFinal.ipynb` — full analysis, modeling, and evaluation notebook
+- `churn_model_deployment.pkl` — saved trained model and preprocessing objects
+- `images/` — visualizations used in the README
+- `requirements.txt` — required Python libraries
+
+---
+
+## Requirements
+
+Install dependencies with:
+
+```bash
+pip install -r requirements.txt
