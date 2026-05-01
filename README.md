@@ -4,54 +4,59 @@
 
 ## Business Problem
 
-Customer churn is one of the biggest challenges for telecom companies. Losing customers directly impacts revenue, and acquiring new customers is significantly more expensive than retaining existing ones.
+Customer churn is a major challenge in the telecom industry. When customers leave, companies lose recurring revenue and must spend significantly more to acquire new customers than to retain existing ones.
 
-The goal of this project is to predict which customers are at risk of leaving the company so that the business can take proactive retention actions.
+The goal of this project is to identify customers who are at high risk of churning so the business can take proactive retention actions.
 
-If this problem is ignored:
-- High-value customers may leave without warning
-- Retention strategies become reactive instead of proactive
-- Marketing and retention costs increase significantly
+If this problem is not addressed:
+- High-value customers may leave without warning  
+- Retention efforts become reactive instead of targeted  
+- Marketing and operational costs increase  
 
 ---
 
 ## Project Overview
 
-This project builds a machine learning model to predict customer churn using demographic, service usage, and billing data.
+This project develops a machine learning solution to predict customer churn using demographic, service usage, and billing data.
 
 The workflow includes:
-- Data cleaning and preprocessing
-- Exploratory data analysis (EDA)
-- Model training and evaluation
-- Model interpretation (SHAP)
-- Deployment as an interactive Streamlit application
+- Data cleaning and preprocessing  
+- Exploratory data analysis (EDA)  
+- Model training and evaluation  
+- Model interpretation using SHAP  
+- Deployment as an interactive Streamlit application  
 
-Final Model:
-- Model: XGBoost
-- ROC-AUC: ~0.82
-- F1 Score (churn): ~0.62
-- Recall: ~0.79
-- Optimized threshold: 0.43
+Final Model Performance:
+- Model: XGBoost  
+- ROC-AUC: ~0.82  
+- F1 Score (churn): ~0.62  
+- Recall: ~0.79  
+- Optimized threshold: 0.43  
 
-The model is deployed into a user-friendly application where users can input customer information and receive churn predictions in real time.
+The final model is deployed into an interactive application that allows users to input customer information and receive real-time churn predictions. This demonstrates not just model accuracy, but real-world usability.
 
 ---
 
 ## Data
 
 Dataset Source:
-- Kaggle: Telco Customer Churn Dataset
+- Kaggle: Telco Customer Churn Dataset  
+  https://www.kaggle.com/datasets/blastchar/telco-customer-churn  
 
-Key characteristics:
-- ~7,000 customers
-- Target variable: Churn (Yes/No)
-- Features include:
-  - Demographics (gender, senior citizen)
-  - Account info (tenure, contract type)
-  - Services (internet, tech support, streaming)
-  - Billing (monthly charges, total charges, payment method)
+This dataset was originally provided by IBM and is widely used for churn prediction tasks.
 
-Churn rate:
-- ~26.5% (imbalanced dataset)
+Key Characteristics:
+- ~7,000 customer records  
+- 21 features + 1 target variable (Churn)  
+- Binary classification problem (Yes/No)  
+- Imbalanced dataset (~26.5% churn rate)  
+
+Feature Categories:
+- Demographics: gender, senior citizen, partner, dependents  
+- Account information: tenure, contract type, payment method  
+- Services: phone, internet, tech support, streaming  
+- Billing: monthly charges, total charges  
+
+Each row represents a customer, and the target variable indicates whether the customer left the company within the last month. :contentReference[oaicite:0]{index=0}
 
 ---
